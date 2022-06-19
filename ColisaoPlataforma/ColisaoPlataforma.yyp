@@ -1,9 +1,12 @@
 {
   "resources": [
     {"id":{"name":"obj_chao","path":"objects/obj_chao/obj_chao.yy",},"order":1,},
+    {"id":{"name":"obj_rampa","path":"objects/obj_rampa/obj_rampa.yy",},"order":2,},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},"order":0,},
+    {"id":{"name":"1-Colisao_plataforma","path":"notes/1-Colisao_plataforma/1-Colisao_plataforma.yy",},"order":0,},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"order":0,},
     {"id":{"name":"spr_chao","path":"sprites/spr_chao/spr_chao.yy",},"order":1,},
+    {"id":{"name":"spr_rampa","path":"sprites/spr_rampa/spr_rampa.yy",},"order":2,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
   "Options": [
@@ -54,7 +57,7 @@
     "IDEVersion": "2022.3.0.625",
   },
   "resourceVersion": "1.5",
-  "name": "sistemas",
+  "name": "ColisaoPlataforma",
   "tags": [],
   "resourceType": "GMProject",
 }

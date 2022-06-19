@@ -1,0 +1,2 @@
+-sistema de colisão para jogos de plataforma
+inserir na room os obj_chao no chao e laterias , obj_player e obj_rampa
