@@ -10,6 +10,12 @@ debug = false;
 tempo_estado = room_speed *2;
 tempo = tempo_estado;
 
+tempo_persegue = room_speed *2;
+tempo_persegue_contador = tempo_persegue;
+
+tempo_ataque = room_speed * 0.8;
+tempo_ataque_contador = tempo_ataque;
+
 destino_x = 0;
 destino_y = 0;
 
@@ -28,7 +34,7 @@ muda_estado = function(){
 
 vigia_player = function(){
 	var player = collision_circle(x,y,campo_visao,obj_player,false,true);
-	if (player){
+	if (player && tempo_persegue_contador <= 0){
 		estado = "persegue_player";
 		alvo = player;
 	};
@@ -37,8 +43,11 @@ vigia_player = function(){
 
 controla_estado = function(){
 	image_blend = c_white;
+	
 	switch(estado){
 		case "parado":
+			if(tempo_persegue_contador > 0 ) tempo_persegue_contador --;
+			
 			tempo --;
 			velocidade_horizontal = 0;
 			velocidade_vertical = 0;
@@ -51,6 +60,8 @@ controla_estado = function(){
 		break;
 		
 		case "andando":
+			if(tempo_persegue_contador > 0 ) tempo_persegue_contador --;
+			
 			tempo --;
 			
 			var distancia_ate_alvo = point_distance(x,y,destino_x, destino_y);
@@ -70,6 +81,7 @@ controla_estado = function(){
 				destino_y = 0;
 				tempo = tempo_estado;
 			};
+			
 			vigia_player();
 			
 		break;
@@ -102,6 +114,45 @@ controla_estado = function(){
 				destino_x = 0;
 				destino_y = 0;
 			};
+			
+			if(distancia_ate_alvo < 100){
+				estado = "carrega_ataque";
+			};
+			
+		break;
+		
+		case "carrega_ataque":
+			tempo_ataque_contador --;
+			var _green = (tempo_ataque_contador / tempo_ataque) * 79;
+			var _blue = _green;
+			
+			image_blend = make_color_rgb(255,_green,_blue);
+			velocidade_horizontal = 0;
+			velocidade_vertical = 0;
+			if(tempo_ataque_contador<=0){
+				estado="ataque";
+				tempo_ataque_contador = tempo_ataque;
+			};
+		break;
+		
+		case "ataque":
+			tempo_persegue_contador = tempo_persegue;
+			image_blend = c_red;
+			if instance_exists(obj_player) alvo = obj_player;
+			
+			
+			var direcao = point_direction(x,y,destino_x, destino_y);
+			velocidade_horizontal = lengthdir_x(velocidade_maxima * 3,direcao);
+			velocidade_vertical = lengthdir_y(velocidade_maxima * 3 ,direcao);
+			
+			var distancia_ate_alvo = point_distance(x,y,destino_x, destino_y);
+			
+			if(distancia_ate_alvo<16){
+				estado="parado";
+				obj_player.velocidade_horizontal =  10;
+				obj_player.velocidade_vertical =  10;
+			};
+
 		break;
 	
 	};
