@@ -1,5 +1,14 @@
 /// @description Insert description here
 // You can write your code in this editor
+
+var sombra_scale, sombra_scale
+sombra_scale = 0.5;
+if(image_index > 1){
+	sombra_scale = 0.7;	
+};
+
+draw_sprite_ext(spr_sombra, 0, x, y,sombra_scale, sombra_scale, 0, c_white, 0.2);
+
 draw_self();
 
 if(debug){

@@ -44,9 +44,9 @@ x += velocidade_horizontal;
 var colidiu_chao = instance_place(x, y+velocidade_vertical,obj_chao);
 if(colidiu_chao){
 	if(velocidade_vertical > 0 ){
-		y = colidiu_chao.bbox_top - sprite_height/2;
+		y = colidiu_chao.bbox_top;
 	}else if (velocidade_vertical<0) {
-		y = colidiu_chao.bbox_bottom + sprite_height/2;
+		y = colidiu_chao.bbox_bottom + (y-bbox_top);
 	};
 	velocidade_vertical = 0;
 };

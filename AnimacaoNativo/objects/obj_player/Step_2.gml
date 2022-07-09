@@ -38,7 +38,7 @@ if(colidiu_chao){
 	if(velocidade_vertical > 0 ){
 		y = colidiu_chao.bbox_top;
 	}else if (velocidade_vertical<0) {
-		y = colidiu_chao.bbox_bottom + 11;
+		y = colidiu_chao.bbox_bottom + (y- bbox_top);
 	};
 	velocidade_vertical = 0;
 };

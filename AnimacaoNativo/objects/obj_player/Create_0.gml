@@ -6,6 +6,7 @@ velocidade_maxima = 3;
 aceleracao_player = 0.2;
 acelera = aceleracao_player;
 velocidade_rolando = 3;
+sombra_scale = 0.5;
 
 face = 0;
 sprite = sprite_index; 
@@ -67,6 +68,7 @@ controla_player = function(){
 };
 
 ajusta_sprite = function(indice_array){
+	;	
 	if(sprite != sprites[indice_array][face]) image_index_sprite = 0;
 	sprite = sprites[indice_array][face];
 	image_total_sprite = sprite_get_number(sprite);
@@ -161,22 +163,33 @@ estado_movendo = function(){
 	estado_txt = "movendo";
 	sprites_index = 1;
 
+
+	if(clamp(image_index_sprite, 1,3 == image_index_sprite)){
+		sombra_scale = 0.6;	
+	}else{
+		sombra_scale = 0.4;
+	};
+	
 	ajusta_sprite(sprites_index);
 
 	if(abs(velocidade_vertical) <= 0.2 && abs(velocidade_horizontal) <= 0.2){
 		estado = estado_parado;
+		sombra_scale = 0.6;
 	};
 	
 	if(attack){
 		estado = estado_ataque;
+		sombra_scale = 0.6;
 	};
 	
 	if(shield){
 		estado = estado_defesa;
+		sombra_scale = 0.6;
 	}
 	
 	if(roll){
 		estado = estado_rolando;
+		sombra_scale = 0.6;
 	}
 };
 

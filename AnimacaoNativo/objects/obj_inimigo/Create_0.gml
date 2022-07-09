@@ -7,6 +7,8 @@ velocidade_maxima = 2;
 estado = "parado";
 debug = false;
 
+image_speed = 8 / room_speed;
+
 tempo_estado = room_speed *2;
 tempo = tempo_estado;
 
@@ -22,6 +24,17 @@ destino_y = 0;
 alvo = noone;
 
 campo_visao = 128;
+
+controla_sprite = function(){
+	var direcao = point_direction(0, 0, velocidade_horizontal, velocidade_vertical);
+	var face = direcao div 90;
+	switch(face){
+		case 0: sprite_index = spr_cogumelo_right	; break;
+		case 1: sprite_index = spr_cogumelo_up		; break;
+		case 2: sprite_index = spr_cogumelo_right	; break;
+		case 3: sprite_index = spr_cogumelo_down	; break;
+	};
+};
 
 muda_estado = function(){
 	var mouse_sobre = position_meeting(mouse_x,mouse_y ,id);
@@ -46,6 +59,7 @@ controla_estado = function(){
 	
 	switch(estado){
 		case "parado":
+			image_speed = 4 / room_speed;
 			if(tempo_persegue_contador > 0 ) tempo_persegue_contador --;
 			
 			tempo --;
@@ -60,6 +74,7 @@ controla_estado = function(){
 		break;
 		
 		case "andando":
+			image_speed = 8 / room_speed;
 			if(tempo_persegue_contador > 0 ) tempo_persegue_contador --;
 			
 			tempo --;
@@ -75,6 +90,13 @@ controla_estado = function(){
 			velocidade_horizontal = lengthdir_x(velocidade_maxima,direcao);
 			velocidade_vertical = lengthdir_y(velocidade_maxima,direcao);
 			
+			if(place_meeting(x + velocidade_horizontal, y + velocidade_vertical ,obj_chao)){
+				estado = "parado";
+				destino_x = 0;
+				destino_y = 0;
+				tempo = tempo_estado;
+			};
+			
 			if(tempo<=0){
 				estado = choose("parado", "andando","persegue_player");
 				destino_x = 0;
@@ -87,6 +109,8 @@ controla_estado = function(){
 		break;
 		
 		case "persegue_player":
+			image_speed = 10 / room_speed;
+			
 			image_blend = c_orange;
 			
 			//var distancia_ate_alvo = point_distance(x,y,destino_x, destino_y);
@@ -122,6 +146,7 @@ controla_estado = function(){
 		break;
 		
 		case "carrega_ataque":
+			image_speed = 2 / room_speed;
 			tempo_ataque_contador --;
 			var _green = (tempo_ataque_contador / tempo_ataque) * 79;
 			var _blue = _green;
@@ -149,8 +174,8 @@ controla_estado = function(){
 			
 			if(distancia_ate_alvo<16){
 				estado="parado";
-				obj_player.velocidade_horizontal =  10;
-				obj_player.velocidade_vertical =  10;
+				//obj_player.velocidade_horizontal =  10;
+				//obj_player.velocidade_vertical =  10;
 			};
 
 		break;

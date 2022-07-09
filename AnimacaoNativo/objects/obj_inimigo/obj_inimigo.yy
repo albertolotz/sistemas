@@ -1,11 +1,14 @@
 {
   "spriteId": {
-    "name": "spr_inimigo",
-    "path": "sprites/spr_inimigo/spr_inimigo.yy",
+    "name": "spr_cogumelo_down",
+    "path": "sprites/spr_cogumelo_down/spr_cogumelo_down.yy",
   },
   "solid": false,
   "visible": true,
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "spr_cogumelo_down",
+    "path": "sprites/spr_cogumelo_down/spr_cogumelo_down.yy",
+  },
   "persistent": false,
   "parentObjectId": {
     "name": "obj_entidade",
