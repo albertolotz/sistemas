@@ -3,6 +3,7 @@
     {"id":{"name":"obj_entidade","path":"objects/obj_entidade/obj_entidade.yy",},"order":2,},
     {"id":{"name":"spr_player_roll_down","path":"sprites/spr_player_roll_down/spr_player_roll_down.yy",},"order":0,},
     {"id":{"name":"spr_chao","path":"sprites/spr_chao/spr_chao.yy",},"order":1,},
+    {"id":{"name":"obj_npc","path":"objects/obj_npc/obj_npc.yy",},"order":6,},
     {"id":{"name":"spr_player_attack_right","path":"sprites/spr_player_attack_right/spr_player_attack_right.yy",},"order":1,},
     {"id":{"name":"spr_player_idle_up","path":"sprites/spr_player_idle_up/spr_player_idle_up.yy",},"order":1,},
     {"id":{"name":"tl_tiles","path":"tilesets/tl_tiles/tl_tiles.yy",},"order":0,},
@@ -32,6 +33,7 @@
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},"order":5,},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},"order":0,},
     {"id":{"name":"spr_player_idle_down","path":"sprites/spr_player_idle_down/spr_player_idle_down.yy",},"order":0,},
+    {"id":{"name":"spr_npc_char","path":"sprites/spr_npc_char/spr_npc_char.yy",},"order":0,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
   "Options": [
@@ -78,6 +80,7 @@
     {"folderPath":"folders/Sprites/Player/Roll.yy","order":5,"resourceVersion":"1.0","name":"Roll","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/Inimigos.yy","order":6,"resourceVersion":"1.0","name":"Inimigos","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/Inimigos/Cogumelo.yy","order":1,"resourceVersion":"1.0","name":"Cogumelo","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Sprites/NPCs.yy","order":8,"resourceVersion":"1.0","name":"NPCs","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},
@@ -87,7 +90,7 @@
   ],
   "IncludedFiles": [],
   "MetaData": {
-    "IDEVersion": "2022.3.0.625",
+    "IDEVersion": "2022.6.0.23",
   },
   "resourceVersion": "1.5",
   "name": "Dialogo",

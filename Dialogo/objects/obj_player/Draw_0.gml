@@ -1,8 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-
-draw_sprite_ext(spr_sombra, 0, x, y,sombra_scale, sombra_scale, 0, c_white, 0.2);
+desenha_sombra(spr_sombra,sombra_scale,c_white, 0.2);
 
 draw_sprite_ext(sprite,image_index_sprite, x, y, xscale, image_yscale,image_angle,image_blend,image_alpha);
 

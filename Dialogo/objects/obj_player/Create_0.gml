@@ -67,8 +67,7 @@ controla_player = function(){
 	};
 };
 
-ajusta_sprite = function(indice_array){
-	;	
+ajusta_sprite = function(indice_array){	
 	if(sprite != sprites[indice_array][face]) image_index_sprite = 0;
 	sprite = sprites[indice_array][face];
 	image_total_sprite = sprite_get_number(sprite);
@@ -155,7 +154,6 @@ estado_parado = function(){
 	if(roll){
 		estado = estado_rolando;
 	}
-	
 };
 
 estado_movendo = function(){

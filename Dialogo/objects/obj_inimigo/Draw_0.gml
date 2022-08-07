@@ -7,7 +7,7 @@ if(image_index > 1){
 	sombra_scale = 0.7;	
 };
 
-draw_sprite_ext(spr_sombra, 0, x, y,sombra_scale, sombra_scale, 0, c_white, 0.2);
+desenha_sombra(spr_sombra,sombra_scale,,);
 
 draw_self();
 
